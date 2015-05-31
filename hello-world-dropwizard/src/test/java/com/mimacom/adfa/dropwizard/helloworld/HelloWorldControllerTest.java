@@ -2,6 +2,8 @@ package com.mimacom.adfa.dropwizard.helloworld;
 
 import static org.junit.Assert.assertEquals;
 
+import javax.ws.rs.core.Response;
+
 import org.junit.ClassRule;
 import org.junit.Test;
 
@@ -17,24 +19,26 @@ public class HelloWorldControllerTest {
         .build();
 
     @Test
-    public void testSayHelloDefault() throws Exception {
-        String greeting = controller
+    public void testSayHelloDefault() {
+        Response response = controller
             .client()
             .target("/say-hello")
             .request()
-            .get()
-            .readEntity(String.class);
-        assertEquals("This is a test!", greeting);
+            .get();
+
+        assertEquals(200, response.getStatus()); // 200 - OK
+        assertEquals("This is a test!", response.readEntity(String.class));
     }
 
     @Test
-    public void testSayHelloParametrized() throws Exception {
-        String greeting = controller
+    public void testSayHelloParametrized() {
+        Response response = controller
             .client()
             .target("/say-hello?name=2nd%20test%20with%20a%20parameter")
             .request()
-            .get()
-            .readEntity(String.class);
-        assertEquals("This is a 2nd test with a parameter!", greeting);
+            .get();
+
+        assertEquals(200, response.getStatus()); // 200 - OK
+        assertEquals("This is a 2nd test with a parameter!", response.readEntity(String.class));
     }
 }
