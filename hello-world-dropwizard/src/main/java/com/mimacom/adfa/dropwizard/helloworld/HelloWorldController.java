@@ -24,7 +24,7 @@ public class HelloWorldController {
     @Path("say-hello")
     @Produces(MediaType.TEXT_PLAIN)
     public String sayHello(@QueryParam("name") String name) {
-        name = StringUtils.defaultString(name, "World");
+        name = StringUtils.defaultString(name, defaultName);
         return String.format(greeting, name);
     }
 }
