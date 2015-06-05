@@ -1,5 +1,9 @@
 package com.mimacom.adfa.jee.helloworld;
 
+import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -8,17 +12,18 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.lang3.StringUtils;
 
+@Stateless
 @Path("/")
 public class HelloWorldController {
 
-    private final String greeting;
-    private final String defaultName;
+    @Resource//(mappedName = "java:global/hello-world/greeting")
+    private String greeting;
 
+    @Resource//(mappedName = "java:global/hello-world/defaultName")
+    private String defaultName;
 
-    public HelloWorldController(/*String greeting, String defaultName*/) {
-        this.greeting = "Hello test %s!";//greeting;
-        this.defaultName = "JEE"; //defaultName;
-    }
+    @EJB
+    TestBean testBean;
 
     @GET
     @Path("say-hello")
