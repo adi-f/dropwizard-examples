@@ -65,18 +65,24 @@
             <version>8.2.0.Final</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.arquillian.extension</groupId>-->
+            <!--<artifactId>arquillian-rest-client-api</artifactId>-->
+            <!--<version>1.0.0.Alpha3</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.arquillian.extension</groupId>-->
+            <!--<artifactId>arquillian-rest-client-impl-3x</artifactId>-->
+            <!--<version>1.0.0.Alpha3</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-rest-client-api</artifactId>
+            <artifactId>arquillian-rest-client-impl-jersey</artifactId>
             <version>1.0.0.Alpha3</version>
-            <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-rest-client-impl-3x</artifactId>
-            <version>1.0.0.Alpha3</version>
-            <scope>test</scope>
-        </dependency>
+
     </dependencies>
 
     <build>
