@@ -1,2 +1,10 @@
 greeting: Hello %s!
-helloEndpoint: http://localhost:8080/say-hello
+helloEndpoint: http://localhost:8000/say-hello
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8000
+  adminConnectors:
+    - type: http
+      port: 8001

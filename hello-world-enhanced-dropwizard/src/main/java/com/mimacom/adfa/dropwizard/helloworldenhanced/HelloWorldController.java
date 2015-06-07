@@ -1,7 +1,6 @@
 package com.mimacom.adfa.dropwizard.helloworldenhanced;
 
 import java.net.URI;
-import java.net.URL;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,9 +10,16 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.codahale.metrics.health.HealthCheck;
+
 
 @Path("/")
-public class HelloWorldController {
+public class HelloWorldController extends HealthCheck {
+
+    private static final Logger LOG = LoggerFactory.getLogger(HelloWorldController.class);
 
     private final String greeting;
     private final Client client;
@@ -31,6 +37,8 @@ public class HelloWorldController {
     @Produces(MediaType.TEXT_PLAIN)
     public String sayPlainHello(@QueryParam("name") String name) {
 
+        LOG.info("Plain greeting with name: {}", name);
+
         Greeting  greeting = client
             .target(helloEndpoint)
             .queryParam("name", name)
@@ -46,7 +54,19 @@ public class HelloWorldController {
     @Path("say-hello")
     @Produces(MediaType.APPLICATION_JSON)
     public Greeting sayStructHello(@QueryParam("name") String name) {
+        LOG.info("Json greeting with name: {}", name);
         return new Greeting(greeting, name);
     }
 
+    @Override
+    protected Result check() throws Exception {
+        try {
+            if(StringUtils.isNotEmpty(sayPlainHello("HEALTH CHECK"))){
+                return Result.healthy();
+            }
+        } catch (Exception e) {
+            LOG.error("Health threw exception!", e);
+        }
+        return Result.unhealthy("unexpected say hello");
+    }
 }

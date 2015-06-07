@@ -14,10 +14,16 @@ public class HelloWorldApplication extends Application<Config>{
 
     @Override
     public void run(Config configuration, Environment environment) throws Exception {
+
         Client client = new JerseyClientBuilder(environment).build(getName());
-        environment.jersey().register(new HelloWorldController(
+
+        HelloWorldController helloWorldController = new HelloWorldController(
             configuration.getGreeting(),
             configuration.getHelloEndpoint(),
-            client));
+            client);
+
+        environment.jersey().register(helloWorldController);
+
+        environment.healthChecks().register(helloWorldController.getClass().getSimpleName(), helloWorldController);
     }
 }
