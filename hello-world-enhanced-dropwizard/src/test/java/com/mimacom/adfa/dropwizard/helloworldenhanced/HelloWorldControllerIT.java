@@ -15,7 +15,7 @@ import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 
-public class HelloWorldIT {
+public class HelloWorldControllerIT {
 
     @ClassRule
     public static final DropwizardAppRule<Config> application =
