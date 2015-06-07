@@ -1,4 +1,6 @@
-package com.mimacom.adfa.dropwizard.helloworld;
+package com.mimacom.adfa.dropwizard.helloworldenhanced;
+
+import java.net.URI;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -14,7 +16,7 @@ public class Config extends Configuration {
 
     @Valid
     @NotNull
-    private String defaultName = "World";
+    private URI helloEndpoint = URI.create("http//localhost:8080/say-hello");
 
     public String getGreeting() {
         return greeting;
@@ -24,11 +26,11 @@ public class Config extends Configuration {
         this.greeting = greeting;
     }
 
-    public String getDefaultName() {
-        return defaultName;
+    public URI getHelloEndpoint() {
+        return helloEndpoint;
     }
 
-    public void setDefaultName(String defaultName) {
-        this.defaultName = defaultName;
+    public void setHelloEndpoint(URI helloEndpoint) {
+        this.helloEndpoint = helloEndpoint;
     }
 }

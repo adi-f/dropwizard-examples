@@ -1,0 +1,2 @@
+greeting: Hello %s!
+helloEndpoint: http://localhost:8080/say-hello

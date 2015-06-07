@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 	<modules>
 		<module>hello-world-dropwizard</module>
+        <module>hello-world-enhanced-dropwizard</module>
         <module>hello-world-spring</module>
         <module>hello-world-jee</module>
     </modules>
