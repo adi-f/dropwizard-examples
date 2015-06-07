@@ -8,3 +8,8 @@ server:
   adminConnectors:
     - type: http
       port: 8083
+
+client:
+  timeout: 1s
+  connectionTimeout: 1s
+  connectionRequestTimeout: 1s

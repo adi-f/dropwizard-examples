@@ -25,7 +25,10 @@ public class HelloWorldIT {
 
     @Test
     public void testSayPlainHello() {
-        Client client = new JerseyClientBuilder(application.getEnvironment()).build("test-client");
+        Client client = new JerseyClientBuilder(application.getEnvironment())
+            .using(application.getConfiguration().getClient())
+            .build("test-client");
+
         URI url = application.getConfiguration().getHelloEndpoint();
 
         Response response = client.target(url)

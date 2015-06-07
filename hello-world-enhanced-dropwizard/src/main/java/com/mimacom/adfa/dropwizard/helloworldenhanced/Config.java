@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import io.dropwizard.Configuration;
+import io.dropwizard.client.JerseyClientConfiguration;
 
 public class Config extends Configuration {
 
@@ -16,6 +17,8 @@ public class Config extends Configuration {
     @Valid
     @NotNull
     private URI helloEndpoint;
+
+    private final JerseyClientConfiguration client = new JerseyClientConfiguration();
 
     public String getGreeting() {
         return greeting;
@@ -31,5 +34,9 @@ public class Config extends Configuration {
 
     public void setHelloEndpoint(URI helloEndpoint) {
         this.helloEndpoint = helloEndpoint;
+    }
+
+    public JerseyClientConfiguration getClient() {
+        return client;
     }
 }
