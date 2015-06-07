@@ -1,0 +1,2 @@
+greeting: test message>%s<
+helloEndpoint: http://localhost:8080/say-hello
