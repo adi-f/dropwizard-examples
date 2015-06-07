@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import javax.ws.rs.client.WebTarget;
 
-import org.apache.commons.lang3.StringUtils;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.extension.rest.client.ArquillianResteasyResource;
 import org.jboss.arquillian.junit.Arquillian;

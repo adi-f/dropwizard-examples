@@ -12,7 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 public class HelloWorldController {
 
     private String greeting = System.getProperty("greeting", "Hello %s!");
-
     private String defaultName = System.getProperty("defaultName", "World");
 
     @GET
