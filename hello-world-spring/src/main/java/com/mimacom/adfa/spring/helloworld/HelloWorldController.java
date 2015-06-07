@@ -1,8 +1,5 @@
 package com.mimacom.adfa.spring.helloworld;
 
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -11,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Stateless
 @RestController
 public class HelloWorldController {
 

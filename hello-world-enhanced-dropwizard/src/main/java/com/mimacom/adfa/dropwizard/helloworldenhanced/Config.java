@@ -7,16 +7,15 @@ import javax.validation.constraints.NotNull;
 
 import io.dropwizard.Configuration;
 
-
 public class Config extends Configuration {
 
     @Valid
     @NotNull
-    private String greeting = "Hello %s!";
+    private String greeting;
 
     @Valid
     @NotNull
-    private URI helloEndpoint = URI.create("http//localhost:8080/say-hello");
+    private URI helloEndpoint;
 
     public String getGreeting() {
         return greeting;

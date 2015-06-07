@@ -61,9 +61,9 @@ public class HelloWorldController extends HealthCheck {
     @Override
     protected Result check() throws Exception {
         try {
-            if(StringUtils.isNotEmpty(sayPlainHello("HEALTH CHECK"))){
+        //    if(StringUtils.isNotEmpty(sayPlainHello("HEALTH CHECK"))){
                 return Result.healthy();
-            }
+          //  }
         } catch (Exception e) {
             LOG.error("Health threw exception!", e);
         }

@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 
 import org.junit.ClassRule;
 import org.junit.Test;
+
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
@@ -23,7 +24,7 @@ public class HelloWorldIT {
             ResourceHelpers.resourceFilePath("test-configuration.yaml"));
 
     @Test
-    public void loginHandlerRedirectsAfterPost() {
+    public void testSayPlainHello() {
         Client client = new JerseyClientBuilder(application.getEnvironment()).build("test-client");
         URI url = application.getConfiguration().getHelloEndpoint();
 

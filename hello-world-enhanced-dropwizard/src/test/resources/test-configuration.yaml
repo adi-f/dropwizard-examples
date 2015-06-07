@@ -1,2 +1,10 @@
 greeting: test message>%s<
-helloEndpoint: http://localhost:8080/say-hello
+helloEndpoint: http://localhost:8082/say-hello
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8082
+  adminConnectors:
+    - type: http
+      port: 8083
