@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 @Path("/")
 public class HelloWorldController {
 
-    private String greeting = System.getProperty("greeting", "Hello %!");
+    private String greeting = System.getProperty("greeting", "Hello %s!");
 
     private String defaultName = System.getProperty("defaultName", "World");
 
