@@ -64,7 +64,7 @@ public class HelloWorldController extends HealthCheck {
                 return Result.healthy();
             }
         } catch (Exception e) {
-            LOG.error("Health threw exception!", e);
+            LOG.error("The health check threw an exception!", e);
         }
         return Result.unhealthy("unexpected say hello");
     }
