@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <arquillian xmlns="http://jboss.com/arquillian">
     <defaultProtocol type="Servlet 3.0" />
     <container qualifier="jboss" default="true">

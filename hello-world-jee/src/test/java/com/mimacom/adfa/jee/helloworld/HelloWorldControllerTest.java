@@ -1,9 +1,7 @@
 package com.mimacom.adfa.jee.helloworld;
 
 import static org.junit.Assert.assertEquals;
-
 import javax.ws.rs.client.WebTarget;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.extension.rest.client.ArquillianResteasyResource;
 import org.jboss.arquillian.junit.Arquillian;
